@@ -1,8 +1,6 @@
-// Add imports above this line
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 import { galleryItems } from './gallery-items';
-// Change code below this line
-console.log(galleryItems);
-
 
 
 const gallery = document.querySelector('.gallery');
@@ -23,25 +21,11 @@ function createItemsPicture(galleryItems) {
 
 gallery.insertAdjacentHTML("beforeend", makeGallery);
 
-gallery.addEventListener('click', onOpenModal);
 
-function onOpenModal(evt) {
-    evt.preventDefault();
-  if (evt.target.nodeName !== "IMG") {
-    return;
-  }
-};
+
 
 const lightbox = new SimpleLightbox('.gallery a', { 
     captionsData: "alt",
     captionDelay: 250
  });
 
-gallery.addEventListener("keydown", closeModal);
-
-function closeModal(evt) {
-    if (evt.code === 'Escape') {
-        instance.close();
-    }
-};
-console.log(galleryItems);
