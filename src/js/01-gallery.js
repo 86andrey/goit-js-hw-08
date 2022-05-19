@@ -21,11 +21,25 @@ function createItemsPicture(galleryItems) {
 
 gallery.insertAdjacentHTML("beforeend", makeGallery);
 
-
-
-
 const lightbox = new SimpleLightbox('.gallery a', { 
     captionsData: "alt",
     captionDelay: 250
  });
 
+gallery.addEventListener('click', onOpenModal);
+
+function onOpenModal(evt) {
+    evt.preventDefault();
+  if (evt.target.nodeName !== "IMG") {
+    return;
+  }
+};
+
+gallery.addEventListener("keydown", closeModal);
+
+function closeModal(evt) {
+    if (evt.code === 'Escape') {
+        instance.close();
+    }
+};
+console.log(galleryItems);
