@@ -7,8 +7,8 @@ const player = new Player(iframe);
 player.on('timeupdate', throttle(onPlayerTime, 1000));
 
 function onPlayerTime(event) {
-  console.log(event);
   const timeOfPlay = event.seconds;
+  console.log(timeOfPlay);
   localStorage.setItem('videoplayer-current-time', timeOfPlay);
 }
 
@@ -37,4 +37,4 @@ const a = player
   .catch(function (error) {
     // an error occurred
   });
-console.log(a);
+console.log(a.seconds);
